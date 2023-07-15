@@ -41,3 +41,17 @@ func TestSkip(t *testing.T){
 		t.Skip("Ooopss. Can't run on MacOS")
 	}
 }
+
+func TestSubTest(t *testing.T){
+	t.Run("John", func(t *testing.T) {
+		result := HelloWorld("John")
+
+		assert.Equal(t, result, "Hello John", "Result must be Hello John")
+	})
+
+	t.Run("Jordan", func(t *testing.T) {
+		result := HelloWorld("Jordan")
+
+		assert.Equal(t, result, "Hello Jordan", "Result must be Hello Jordan")
+	})
+}
